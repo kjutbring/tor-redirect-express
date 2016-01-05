@@ -1,6 +1,6 @@
-# tor-redirect-node
+# tor-redirect-express
 
-This is a node.js clone of [tor-redirect](https://github.com/redpois0n/tor-redirect)
+An Express middleware, who is a clone of [tor-redirect](https://github.com/redpois0n/tor-redirect)
 
 Redirects TOR users browsing your site over clearweb to your onion address.
 
