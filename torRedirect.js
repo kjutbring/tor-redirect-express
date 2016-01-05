@@ -9,6 +9,7 @@
 
 module.exports = {
     redirect: function(req, res, next) {
-        console.log(res);
-    };
+        console.log(req.hostname);
+        next();
+    }
 }
