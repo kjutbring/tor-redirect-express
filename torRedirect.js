@@ -7,9 +7,20 @@
  *
  */
 
+function getIp(req) {
+    var userIp = req.headers["x-forwarded-for"] ||
+                    req.socket.remoteAddress ||
+                    req.connection.socket.remoteAddress;
+    return userIp;
+};
+
 module.exports = {
     redirect: function(req, res, next) {
         console.log(req.hostname);
+            
+        var userIp = getIp(req); 
+        console.log(userIp);
+
         next();
     }
 }
