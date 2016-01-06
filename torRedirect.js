@@ -15,9 +15,7 @@ function getIp(req) {
 };
 
 module.exports = {
-    redirect: function(req, res, next) {
-        console.log(req.hostname);
-            
+    redirect: function(req, res, next) {    
         var userIp = getIp(req); 
         console.log(userIp);
 
