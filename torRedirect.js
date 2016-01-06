@@ -8,7 +8,9 @@
  */
 
 function getIp(req) {
-    var userIp = req.headers["x-forwarded-for"];
+    var userIp = req.headers["x-forwarded-for"] ||
+                    req.socket.remoteAddress ||
+                    req.connection.socket.remoteAddress;
     return userIp;
 };
 
