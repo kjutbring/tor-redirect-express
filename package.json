@@ -1,0 +1,27 @@
+{
+  "name": "tor-redirect-express",
+  "version": "0.0.1",
+  "description": "Redirects to users to hs. ",
+  "main": "tor-redirect.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjutbring/tor-redirect-express.git"
+  },
+  "keywords": [
+    "tor",
+    "express"
+  ],
+  "author": "kjutbring",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/kjutbring/tor-redirect-express/issues"
+  },
+  "homepage": "https://github.com/kjutbring/tor-redirect-express#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
