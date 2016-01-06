@@ -8,11 +8,16 @@
  */
 
 function getIp(req) {
-    var userIp = req.headers["x-forwarded-for"] ||
+    var ip = req.headers["x-forwarded-for"] ||
                     req.socket.remoteAddress ||
                     req.connection.socket.remoteAddress;
-    return userIp;
+    
+    var pattern = /\d+\.\d+\.\d+\.\d+$/;
+    var userIp = ip.match(pattern);
+    
+    return userIp[0];
 };
+
 
 module.exports = {
     redirect: function(req, res, next) {    
