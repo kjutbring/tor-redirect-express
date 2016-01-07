@@ -18,7 +18,7 @@ Automatically update exit node list
 Add getlist.sh to crontab to schedule fetching of exit-node ips
 
 ```bash
-crontab -e
+$ crontab -e
 ```
 
 Add to file to fetch exit-node ips 00.00 every day
@@ -29,7 +29,7 @@ Add to file to fetch exit-node ips 00.00 every day
 
 Install with npm
 
-```javascript
+```bash
 $ npm install https://github.com/kjutbring/tor-redirect-express.git
 ```
 
