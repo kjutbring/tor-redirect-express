@@ -7,6 +7,14 @@
  *
  */
 
+var ONION = "youronionaddress.onion";
+
+var fs = require("fs");
+
+/*
+ * Get and return the clients ip address.
+ *
+ */
 function getIp(req) {
     var ip = req.headers["x-forwarded-for"] ||
                     req.socket.remoteAddress ||
@@ -18,12 +26,38 @@ function getIp(req) {
     return userIp[0];
 };
 
+/*
+ * Compare client ip with tor exit-nodes.
+ * If a match is found return true.
+ *
+ */
+function compareIp(clientIp) { 
+    
+    var result = false;  
+
+    var torArray = fs.readFileSync("list.txt").toString().split("\n"); 
+    
+    for (ip in torArray) {
+        if (torArray[ip] == clientIp) {
+            var result = true;
+        }
+    }
+    return result;
+};
 
 module.exports = {
     redirect: function(req, res, next) {    
         var userIp = getIp(req); 
-        console.log(userIp);
+        
+        var isFound = compareIp(userIp);
 
-        next();
+        if (compareIp(userIp) == true) {
+            res.writeHead(301, {
+                Location: ONION
+            });
+            res.end();
+        } else {
+            next(); 
+        }
     }
 }
